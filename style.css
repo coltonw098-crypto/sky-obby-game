@@ -1,0 +1,143 @@
+:root {
+  --bg: rgba(20, 24, 34, 0.8);
+  --panel: rgba(9, 14, 26, 0.9);
+  --text: #f1f7ff;
+  --accent: #47a2ff;
+  --danger: #ff5f77;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+}
+
+#gameCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(10, 20, 45, 0.65), rgba(10, 10, 20, 0.8));
+  backdrop-filter: blur(4px);
+  z-index: 20;
+}
+
+.hidden { display: none !important; }
+.active { display: flex; }
+
+.panel {
+  width: min(720px, calc(100vw - 32px));
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+.panel.small { max-width: 420px; text-align: center; }
+h1, h2, p { margin: 0 0 12px; }
+.subtitle { opacity: 0.85; }
+
+.avatar-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.avatar-card {
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  cursor: pointer;
+}
+
+.avatar-card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(71, 162, 255, 0.25) inset;
+}
+
+.avatar-preview {
+  width: 100%;
+  height: 110px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #8bd0ff, #cbeaff);
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.avatar-preview::before,
+.avatar-preview::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.avatar-preview::before {
+  top: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: #f6c29a;
+}
+
+#boyPreview::after,
+#girlPreview::after {
+  top: 52px;
+  width: 56px;
+  height: 36px;
+  border-radius: 4px;
+}
+
+#boyPreview::after { background: #3779ff; }
+#girlPreview::after { background: #ff62c5; }
+
+.menu-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.menu-actions.vertical { flex-direction: column; }
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 14px;
+  background: #30496b;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn.primary { background: var(--accent); }
+.btn.danger { background: var(--danger); }
+
+.hud {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 18px;
+  z-index: 10;
+}
