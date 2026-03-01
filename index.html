@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sky Tower Escape</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="menuOverlay" class="overlay active">
+    <div class="panel">
+      <h1>Sky Tower Escape</h1>
+      <p class="subtitle">Choose your avatar and climb 100+ sky stages.</p>
+      <div class="avatar-grid">
+        <button class="avatar-card selected" data-avatar="boy">
+          <div class="avatar-preview" id="boyPreview"></div>
+          <span>Boy Avatar</span>
+        </button>
+        <button class="avatar-card" data-avatar="girl">
+          <div class="avatar-preview" id="girlPreview"></div>
+          <span>Girl Avatar</span>
+        </button>
+      </div>
+      <div class="menu-actions">
+        <button id="playBtn" class="btn primary">Play</button>
+        <button id="resetSaveBtn" class="btn danger">Reset Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="hud" class="hud hidden">
+    <div>Stage: <span id="hudStage">1</span></div>
+    <div>Deaths: <span id="hudDeaths">0</span></div>
+    <div>Time: <span id="hudTimer">00:00</span></div>
+  </div>
+
+  <div id="pauseOverlay" class="overlay hidden">
+    <div class="panel small">
+      <h2>Paused</h2>
+      <div class="menu-actions vertical">
+        <button id="resumeBtn" class="btn primary">Resume</button>
+        <button id="restartBtn" class="btn">Restart</button>
+        <button id="backMenuBtn" class="btn">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="winOverlay" class="overlay hidden">
+    <div class="panel small">
+      <h2>Congratulations!</h2>
+      <p>You escaped the Sky Tower.</p>
+      <p>Total Time: <span id="winTime">00:00</span></p>
+      <p>Total Deaths: <span id="winDeaths">0</span></p>
+      <button id="winMenuBtn" class="btn primary">Back to Menu</button>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
